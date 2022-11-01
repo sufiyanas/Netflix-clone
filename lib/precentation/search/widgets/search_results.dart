@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:netflix_clone/core/colors/contsants.dart';
-import 'package:netflix_clone/precentaion/search/widgets/search_idle.dart';
-import 'package:netflix_clone/precentaion/search/widgets/title.dart';
+import 'package:netflix_clone/precentation/search/widgets/search_idle.dart';
+import 'package:netflix_clone/precentation/search/widgets/title.dart';
 
 class SearchResultWidget extends StatelessWidget {
   const SearchResultWidget({super.key});

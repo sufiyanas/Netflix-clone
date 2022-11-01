@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:netflix_clone/core/colors/colors.dart';
-import 'package:netflix_clone/precentaion/mainpage/screen_mainpage.dart';
+import 'package:netflix_clone/precentation/mainpage/screen_mainpage.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -16,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Netflix Demo',
       theme: ThemeData(
+          appBarTheme: const AppBarTheme(backgroundColor: Colors.transparent),
           fontFamily: GoogleFonts.montserrat().fontFamily,
           scaffoldBackgroundColor: backgrountcolor,
           textTheme: const TextTheme(

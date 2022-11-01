@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/core/colors/colors.dart';
 import 'package:netflix_clone/core/colors/contsants.dart';
-import 'package:netflix_clone/precentaion/search/widgets/title.dart';
+import 'package:netflix_clone/precentation/search/widgets/title.dart';
 
 const imageurl =
     'https://www.themoviedb.org/t/p/w533_and_h300_bestv2/tFlSDoWQsAZ2qjICKzfP5Yw6zM5.jpg';

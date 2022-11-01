@@ -1,19 +1,20 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:netflix_clone/core/colors/contsants.dart';
-import 'package:netflix_clone/precentaion/home/widget/number_card.dart';
-import 'package:netflix_clone/precentaion/search/widgets/title.dart';
+import 'package:netflix_clone/precentation/home/widget/main_card.dart';
+import 'package:netflix_clone/precentation/search/widgets/title.dart';
 
-class Numbertitlecard extends StatelessWidget {
-  const Numbertitlecard({
+class MainTitleCardWidget extends StatelessWidget {
+  const MainTitleCardWidget({
     Key? key,
+    required this.title,
   }) : super(key: key);
-
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      const Padding(
-        padding: EdgeInsets.all(8.0),
-        child: SearchTitleTile(title: 'Top 10 shows in india today'),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SearchTitleTile(title: title),
       ),
       khight,
       LimitedBox(
@@ -22,9 +23,7 @@ class Numbertitlecard extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: 14,
           itemBuilder: (context, index) {
-            return NumberCardwidget(
-              index: index,
-            );
+            return const Maincard();
           },
         ),
       ),

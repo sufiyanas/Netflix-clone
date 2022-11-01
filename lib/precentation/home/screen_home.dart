@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:netflix_clone/core/colors/contsants.dart';
-import 'package:netflix_clone/precentaion/home/widget/backgroundStackImage.dart';
-import 'package:netflix_clone/precentaion/home/widget/main_title_card.dart';
-import 'package:netflix_clone/precentaion/home/widget/number_list_card.dart';
+import 'package:netflix_clone/precentation/home/widget/backgroundStackImage.dart';
+import 'package:netflix_clone/precentation/home/widget/main_title_card.dart';
+import 'package:netflix_clone/precentation/home/widget/number_list_card.dart';
 
 ValueNotifier<bool> scrolldirection = ValueNotifier(true);
 

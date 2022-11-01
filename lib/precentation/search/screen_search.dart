@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/core/colors/contsants.dart';
-import 'package:netflix_clone/precentaion/search/widgets/search_idle.dart';
-import 'package:netflix_clone/precentaion/search/widgets/search_results.dart';
+import 'package:netflix_clone/precentation/search/widgets/search_results.dart';
 
 class ScreeenSearch extends StatelessWidget {
   const ScreeenSearch({super.key});

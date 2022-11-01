@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/core/colors/colors.dart';
 import 'package:netflix_clone/core/colors/contsants.dart';
-import 'package:netflix_clone/precentaion/widgets/appbar.dart';
+import 'package:netflix_clone/precentation/widgets/appbar.dart';
 
 class ScreenDownload extends StatelessWidget {
   ScreenDownload({super.key});
