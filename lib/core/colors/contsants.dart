@@ -14,6 +14,10 @@ const khight20 = SizedBox(
   height: 20,
 );
 
+const khight50 = SizedBox(
+  height: 50,
+);
+
 //textstyle
 
 TextStyle ktextstyleforhomepageitle = const TextStyle(
