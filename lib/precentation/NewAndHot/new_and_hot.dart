@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:netflix_clone/core/colors/colors.dart';
 import 'package:netflix_clone/core/colors/contsants.dart';
 import 'package:netflix_clone/precentation/NewAndHot/widgets/comming_soon_widget.dart';
-import 'package:netflix_clone/precentation/NewAndHot/widgets/video_widget.dart';
-import 'package:netflix_clone/precentation/home/widget/custum_button.dart';
-
 import 'widgets/Everyone_watching_widget.dart';
 
 class ScreenNewAndHot extends StatelessWidget {

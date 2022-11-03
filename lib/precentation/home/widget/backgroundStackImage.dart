@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:netflix_clone/core/colors/colors.dart';
 import 'package:netflix_clone/precentation/home/widget/custum_button.dart';
 
@@ -14,10 +12,10 @@ class Backgroudimage extends StatelessWidget {
         Container(
           width: double.infinity,
           height: 700,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               image: DecorationImage(
                   image: NetworkImage(
-                    'https://www.themoviedb.org/t/p/w220_and_h330_face/vUUqzWa2LnHIVqkaKVlVGkVcZIW.jpg',
+                    'https://www.themoviedb.org/t/p/w220_and_h330_face/uBTlJDdPpRxYTfUnKw4wbuIGSEK.jpgFF',
                   ),
                   fit: BoxFit.cover)),
         ),
@@ -30,12 +28,12 @@ class Backgroudimage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Custumiconwidget(
+                const Custumiconwidget(
                   icon: Icons.add,
                   text: 'My list',
                 ),
                 _playiconButtonTopRow(),
-                Custumiconwidget(icon: Icons.info, text: 'info')
+                const Custumiconwidget(icon: Icons.info, text: 'info')
               ],
             ),
           ),
@@ -50,11 +48,11 @@ class Backgroudimage extends StatelessWidget {
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(kwhite),
         ),
-        icon: Icon(
+        icon: const Icon(
           Icons.play_arrow,
           color: kblack,
         ),
-        label: Text(
+        label: const Text(
           'Play',
           style: TextStyle(
               fontSize: 20, fontWeight: FontWeight.bold, color: kblack),
