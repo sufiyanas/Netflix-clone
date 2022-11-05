@@ -1,8 +1,11 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix_clone/application/downloads/downloads_bloc.dart';
 import 'package:netflix_clone/core/colors/colors.dart';
 import 'package:netflix_clone/core/colors/contsants.dart';
+import 'package:netflix_clone/core/colors/strings.dart';
 import 'package:netflix_clone/precentation/widgets/appbar.dart';
 
 class ScreenDownload extends StatelessWidget {
@@ -88,12 +91,15 @@ class section2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List imagelist = [
-      'https://www.themoviedb.org/t/p/w220_and_h330_face/z2yahl2uefxDCl0nogcRBstwruJ.jpg',
-      'https://www.themoviedb.org/t/p/w220_and_h330_face/xDgnmbdWS59NtTPdzujdZGuPUPZ.jpg',
-      'https://www.themoviedb.org/t/p/w220_and_h330_face/agkRkx58t6Ai8AqUOHBOGjRyUGW.jpg'
-    ];
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<DownloadsBloc>(context)
+          .add(const DownloadsEvent.getDownloadsImage());
+    });
+    // BlocProvider.of<DownloadsBloc>(context)
+    //     .add(const DownloadsEvent.getDownloadsImage());
+
     final Size size = MediaQuery.of(context).size;
+
     return Column(
       children: [
         const Text(
@@ -110,34 +116,43 @@ class section2 extends StatelessWidget {
             "We will download a personalised selection of \n movies and shows for you , so there's\n always something to watch on your\n device",
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.grey, fontSize: 16)),
-        SizedBox(
-          width: size.width,
-          height: size.width,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Center(
-                child: CircleAvatar(
-                  radius: size.width * 0.40,
-                  backgroundColor: Colors.grey.withOpacity(0.5),
-                ),
-              ),
-              Downloadimagewidget(
-                image: imagelist[0],
-                margin: const EdgeInsets.only(left: 130),
-                angle: 20,
-              ),
-              Downloadimagewidget(
-                image: imagelist[1],
-                margin: const EdgeInsets.only(right: 130),
-                angle: -20,
-              ),
-              Downloadimagewidget(
-                image: imagelist[2],
-                margin: const EdgeInsets.only(left: 0),
-              ),
-            ],
-          ),
+        BlocBuilder<DownloadsBloc, DownloadState>(
+          builder: (context, state) {
+            return SizedBox(
+              width: size.width,
+              height: size.width,
+              child: state.isLoading
+                  ? const Center(child: CircularProgressIndicator())
+                  : Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Center(
+                          child: CircleAvatar(
+                            radius: size.width * 0.40,
+                            backgroundColor: Colors.grey.withOpacity(0.5),
+                          ),
+                        ),
+                        Downloadimagewidget(
+                          image:
+                              '$imageAppendUrl${state.downloads[0].postarPath}',
+                          margin: const EdgeInsets.only(left: 130),
+                          angle: 20,
+                        ),
+                        Downloadimagewidget(
+                          image:
+                              '$imageAppendUrl${state.downloads[1].postarPath}',
+                          margin: const EdgeInsets.only(right: 130),
+                          angle: -20,
+                        ),
+                        Downloadimagewidget(
+                          image:
+                              '$imageAppendUrl${state.downloads[2].postarPath}',
+                          margin: const EdgeInsets.only(left: 0),
+                        ),
+                      ],
+                    ),
+            );
+          },
         ),
       ],
     );

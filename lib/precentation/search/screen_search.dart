@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix_clone/application/search/search_bloc.dart';
 import 'package:netflix_clone/core/colors/contsants.dart';
+import 'package:netflix_clone/precentation/search/widgets/search_idle.dart';
 import 'package:netflix_clone/precentation/search/widgets/search_results.dart';
 
 class ScreeenSearch extends StatelessWidget {
@@ -8,6 +11,9 @@ class ScreeenSearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<SearchBloc>(context).add(const Initialize());
+    });
     return Scaffold(
         body: SafeArea(
             child: Padding(
@@ -24,9 +30,24 @@ class ScreeenSearch extends StatelessWidget {
             suffixIcon: const Icon(CupertinoIcons.xmark_circle_fill,
                 color: Colors.grey),
             style: const TextStyle(color: Colors.grey),
+            onChanged: (value) {
+              BlocProvider.of<SearchBloc>(context)
+                  .add(Searchmovie(movieQuery: value));
+            },
           ),
           khight,
-          Expanded(child: const SearchResultWidget())
+          BlocBuilder<SearchBloc, SearchState>(
+            builder: (context, state) {
+              if (state.searchResultList.isEmpty) {
+                return const Expanded(child: SearchIdlewidget());
+              } else {
+                return const Expanded(child: SearchResultWidget());
+              }
+
+              // return Expanded(child: const SearchIdlewidget());
+            },
+          ),
+          //  Expanded(child: const SearchIdlewidget())
         ],
       ),
     )));

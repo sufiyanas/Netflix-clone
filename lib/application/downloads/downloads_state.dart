@@ -5,15 +5,15 @@ part of 'downloads_bloc.dart';
 class DownloadState with _$DownloadState {
   const factory DownloadState({
     required bool isLoading,
-    List<Downloads>? downloads,
+    required List<Downloads> downloads,
     required Option<Either<MainFailure, List<Downloads>>>
         downloddsFailureOrSuccessOption,
   }) = _DownloadState;
 
   factory DownloadState.initial() {
     return const DownloadState(
-      downloddsFailureOrSuccessOption: None(),
-      isLoading: false,
-    );
+        downloddsFailureOrSuccessOption: None(),
+        isLoading: false,
+        downloads: []);
   }
 }
